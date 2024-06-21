@@ -1,13 +1,10 @@
 package it.unisa.utils;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,24 +27,24 @@ public class DriverManagerConnectionPool  {
 	
 	private static synchronized Connection createDBConnection() throws SQLException {
 		Connection newConnection = null;
-		String dbUrl = null;
-		String dbUsername = null;
-		String dbPassword = null;
+		String dbUrl = "jdbc:mysql://localhost:3306/worldcrafters?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String dbUsername = "root";
+		String dbPassword = "1234";
 		     
-        try {
-        	InputStream input = DriverManagerConnectionPool.class.getClassLoader().getResourceAsStream("config.properties");
-        	Properties prop = new Properties();
-            if (input == null) {
-                logger.log(Level.WARNING, "Sorry, unable to find config.properties");
-            }
-            prop.load(input);
+        // try {
+        // 	InputStream input = DriverManagerConnectionPool.class.getClassLoader().getResourceAsStream("dbconfig.properties");
+        // 	Properties prop = new Properties();
+        //     if (input == null) {
+        //         logger.log(Level.WARNING, "Sorry, unable to find dbconfig.properties");
+        //     }
+        //     prop.load(input);
 
-            dbUrl = prop.getProperty("db.url");
-            dbUsername = prop.getProperty("db.username");
-            dbPassword = prop.getProperty("db.password");
-        } catch (IOException ex) {
-            logger.log(Level.SEVERE, "Error loading configuration", ex);
-        }
+        //     dbUrl = prop.getProperty("db.url");
+        //     dbUsername = prop.getProperty("db.username");
+        //     dbPassword = prop.getProperty("db.password");
+        // } catch (IOException ex) {
+        //     logger.log(Level.SEVERE, "Error loading configuration", ex);
+        // }
 
         try {
         	newConnection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);

@@ -1,8 +1,0 @@
-#presentationBg {
-    background-image: url(../images/presentation-bg.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 600px;
-    overflow: hidden;
-    z-index: 0;
-}

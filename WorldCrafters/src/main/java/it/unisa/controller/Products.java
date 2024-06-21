@@ -18,6 +18,7 @@ import it.unisa.dao.ProductDAO;
 
 
 @WebServlet(urlPatterns = {"/products", "/search"})
+// @WebServlet("/products")
 public class Products extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -58,8 +59,6 @@ public class Products extends HttpServlet {
             }
         }
         
-        
-
         request.setAttribute("products", products);
         try {
         	request.getRequestDispatcher("products.jsp").forward(request, response);
@@ -69,5 +68,10 @@ public class Products extends HttpServlet {
     		logger.log(Level.WARNING, e.getMessage());
     	}
 	}
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
+    }
 
 }

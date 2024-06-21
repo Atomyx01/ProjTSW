@@ -50,7 +50,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -113,7 +113,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -204,7 +204,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -270,7 +270,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -334,7 +334,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -401,7 +401,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -502,7 +502,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -568,7 +568,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -631,7 +631,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -722,7 +722,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -788,7 +788,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -855,7 +855,7 @@ public class ProductDAO {
 	            double price = resultSet.getDouble(PRICE);
 	            String seller = resultSet.getString(SELLER);
 	            String imgSrc = resultSet.getString(IMG_SRC);
-	            Category category = Category.valueOf(resultSet.getString(CATEGORY));
+	            Category category = Category.valueOf(resultSet.getString(CATEGORY).toUpperCase());
 	            int quantity = resultSet.getInt(QUANTITY);
 	            int favorites = resultSet.getInt(FAVORITES);
 	            Date listingDate = resultSet.getDate(LISTING_DATE);
@@ -991,7 +991,6 @@ public class ProductDAO {
     	ResultSet resultSet = null;
 	    int generatedId = -1;
     	
-    	int id = product.getId();
 		String name = product.getName();
         double price = product.getPrice();
         String seller = product.getSeller();

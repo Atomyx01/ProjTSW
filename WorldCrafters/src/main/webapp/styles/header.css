@@ -1,0 +1,169 @@
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 70px;
+    padding: 20px;
+    position: fixed;
+    box-shadow: 0px 16px 15px -10px rgba(0,0,0,0.6);
+    overflow: visible;
+    background-color: #8cada7;
+    z-index: 98;
+}
+
+header i {
+	font-size: 30px;
+}
+
+header a {
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #002642;
+    font-size: 20px;
+}
+
+header a:hover {
+	color: #F19A3E;
+}
+
+#logoContainer {
+	flex-basis: 16%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+.link {
+	flex-basis: 4%;
+}
+
+#cartQuantity {
+	font-weight: bold;
+	font-size: 18px;
+	color: #F19A3E;
+}
+
+#searchbar {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 40%;
+    background-color:#FDF6ED;
+    border-radius: 5px;
+    padding: 5px 1px;
+   	position: relative;
+}
+
+.fa-search {
+	color: #002642;
+}
+
+.fa-search:hover {
+	color: #F19A3E;
+}
+
+#searchInput {
+    background-color: transparent;
+    flex-basis: 90%;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 20px;
+    color:#002642;
+}
+
+#searchResults {
+  position: absolute;
+  background-color:#FDF6ED;
+  width: 100%;
+  margin-top: 36px;
+  list-style: none;
+  padding: 0;
+}
+
+#searchResults li {
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#searchResults li:hover {
+  background-color: #f0f0f0;
+  text-decoration: underline;
+}
+
+#searchbar button {
+    text-align: right;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#logoContainer img {
+	width: 60px;
+}
+
+#logoContainer span {
+	color: 002642;
+	font-size: 30px;
+}
+
+#headerSpace {
+    width: 100vw;
+    height: 70px;
+}
+
+
+
+/*******************************************/
+
+@media only screen and (max-width: 768px) {
+	
+	#logoContainer span,
+	#homeButton,
+	#contactButton {
+		display: none;
+	}
+	
+	header {
+	    position: absolute;
+	    height: 50px;
+	    padding: 10px;
+	    justify-content: space-around;
+	}
+	
+	header i {
+		font-size: 15px;
+	}
+	
+	#cartQuantity {
+		font-size: 15px;
+	}
+
+	#logoContainer {
+		flex-basis: 6%;
+	}
+	
+	#searchbar {
+	    padding: 3px;
+	}
+	
+	#searchbar input {    
+	    padding: 3px;
+	    font-size: 12px;
+	}
+	
+	#logoContainer img {
+		width: 30px;
+	}
+	
+	#headerSpace {
+	    height: 50px;
+	}
+}

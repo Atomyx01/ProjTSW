@@ -1,8 +1,6 @@
 package it.unisa.bean;
 
-import java.io.Serializable;
-
-public class CartItem extends Product implements Serializable{
+public class CartItem extends Product {
 	
 	private static final long serialVersionUID = 1L;
 

@@ -27,7 +27,7 @@ public class EditProduct extends HttpServlet {
         Date listingDate = Date.valueOf(request.getParameter("listingDate"));
         String description = request.getParameter("description");
         Category category = Category.valueOf(request.getParameter("category"));
-        boolean status = Boolean.valueOf(request.getParameter("status"));
+        Boolean status = Boolean.valueOf(request.getParameter("status"));
         String imgSrc = request.getParameter("imgSrc");
         
         //TODO fare check dei campi

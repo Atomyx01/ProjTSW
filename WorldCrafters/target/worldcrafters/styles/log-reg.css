@@ -1,0 +1,201 @@
+/* LOG-REG */
+
+body {
+	background-image: url("../images/presentation-bg.jpg");
+    background-size: cover;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.sign-in, .sign-up {
+	border: 2px solid #4285f4;
+	border-radius: 10px;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 30px;
+}
+
+.sign-in {
+	position: relative;
+	z-index: 2;
+}
+
+.sign-up {
+	position: relative;
+	z-index: 1;
+}
+
+/* Aggiorna lo stile del titolo */
+.form-title {
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+    font-size: 24px; /* Aumenta la dimensione del font */
+    font-weight: bold; /* Aggiungi grassetto al titolo */
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+/* Aggiorna lo stile delle etichette */
+.form-group label {
+	
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #333333;
+	font-size: 16px; /* Aumenta la dimensione del font */
+}
+#signin {
+    background-color: orange;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#signin:hover {
+    background-color: darkorange;
+}
+#signup {
+    background-color: orange;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#signup:hover {
+    background-color: darkorange;
+}
+/* Aggiorna lo stile del pulsante di accesso */
+.form-button input[type="submit"] {
+	padding: 10px 20px;
+	background-color: #4285f4;
+	color: #ffffff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px; /* Aumenta la dimensione del font */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+}
+
+.form-button {
+	text-align: center;
+}
+
+.social-login {
+	margin-top: 30px;
+}
+
+/* Aggiorna lo stile dell'etichetta dei social login */
+.social-label {
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #333333;
+	font-size: 16px; /* Aumenta la dimensione del font */
+}
+
+.social-icons {
+	display: flex;
+	justify-content: center;
+}
+
+.social-icons a {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.social-icon {
+	width: 30px;
+	height: 30px;
+}
+
+.signup-link, .login-link {
+	text-align: center;
+	margin-top: 20px;
+}
+#register-link {
+    color: blue;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#register-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Stile per il wrapper della finestra di login */
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+}
+
+/* Aggiorna lo stile della finestra modale */
+.modal-content {
+	background-color: #ffffff; /* Imposta il colore di sfondo a bianco */
+	padding: 20px;
+	border: 4px solid #8cada7;
+	border-radius: 10px; /* Aggiorna il raggio dei bordi */
+	width: 300px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #8cada7; /* Cambia il colore del testo in verde */
+  cursor: pointer;
+  font-size: 24px; /* Aumenta la dimensione del font */
+  font-weight: bold; /* Aggiungi grassetto al testo */
+  text-decoration: none; /* Rimuovi l'effetto di sottolineatura */
+  padding: 0;
+}
+.close-button:hover {
+	text-decoration: none;
+	color: #8cada7;
+}
+
+.error-message {
+	color: red;
+	font-size: 14px;
+}
+
+.error {
+	border: 1px solid red !important;
+}
+
+#errorMessageEmail, #errorMessageFirstName, #errorMessageLastName, #errorMessagePassword, #errorMessageConfirmPassword {
+	font-size: 12px;
+	color: red;
+}
