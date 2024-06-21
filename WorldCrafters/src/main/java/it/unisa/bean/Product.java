@@ -17,10 +17,12 @@ public class Product implements Serializable {
 	private int favorites;
 	private Date listingDate;
 	private String description;
+	private boolean status;
 
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -121,6 +123,13 @@ public class Product implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	
+	public boolean getStatus() {
+		return status;
+	}
+	
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 }

@@ -171,10 +171,136 @@ public class PurchaseDAO {
 	        } catch (SQLException e) {
 	            logger.log(Level.WARNING, e.getMessage());
 	        }
-	    }		
+	    }
 		
 	}
 	
+	public List<Purchase> getPurchasesWithDeleteRequest() {
+		
+List<Purchase> purchases = new ArrayList<>();
+		
+		Connection connection = null;
+	    PreparedStatement statement = null;
+	    ResultSet resultSet = null;
+
+        try {
+	        connection = DriverManagerConnectionPool.getConnection();
+	        String query = "SELECT id, date, time, status, amount, estimatedDate, paymentId, fullName, address, city, state, zipCode FROM purchase WHERE (deleteRequest = true) ORDER BY date ASC, time ASC;";
+	        statement = connection.prepareStatement(query);
+	        resultSet = statement.executeQuery();
+
+	        while (resultSet.next()) {
+	        	int id = resultSet.getInt("id");
+	        	Date date = resultSet.getDate("date");
+	        	Time time = resultSet.getTime("time");
+	        	Status status = Status.valueOf(resultSet.getString("status"));
+	            double amount = resultSet.getDouble("amount");
+	            Date estimatedDate = resultSet.getDate("estimatedDate");
+	            int paymentId = resultSet.getInt("paymentId");
+	            String fullName = resultSet.getString("fullName");
+	            String address = resultSet.getString("address");
+	            String city = resultSet.getString("city");
+	            String state = resultSet.getString("state");
+	            String zipCode = resultSet.getString("zipCode");
+	            
+	            Purchase purchase = new Purchase();
+	            purchase.setId(id);
+	            purchase.setDate(date);
+	            purchase.setTime(time);
+	            purchase.setStatus(status);
+	            purchase.setAmount(amount);
+	            purchase.setEstimatedDate(estimatedDate);
+	            purchase.setPaymentId(paymentId);
+	            purchase.setFullName(fullName);
+	            purchase.setAddress(address);
+	            purchase.setCity(city);
+	            purchase.setState(state);
+	            purchase.setZipCode(zipCode);
+	            
+	            purchases.add(purchase);
+	        }
+	    } catch (SQLException e) {
+	        logger.log(Level.WARNING, e.getMessage());
+	    } finally {
+	        try {
+	        	if (statement != null) {
+	                statement.close();
+	            }
+	    		if (resultSet != null) {
+	                resultSet.close();
+	            }
+	            if (connection != null) {
+	                connection.close();
+	            }
+	        } catch (SQLException e) {
+	            logger.log(Level.WARNING, e.getMessage());
+	        }
+	    }
+
+	    return purchases;	
+	}
 	
+	public void deletePurchase(int purchaseId) {
+		
+		//riaggiornare quantità prodotti
+		//settare status a deleted
+		//settare deleteRequest a false
+		
+		Connection connection = null;
+	    PreparedStatement statement1 = null;
+	    PreparedStatement statement2 = null;
+	    PreparedStatement statement3 = null;
+
+	    try {
+	        connection = DriverManagerConnectionPool.getConnection();
+	        String query1 = "UPDATE purchase SET deleteRequest='false' WHERE id=?";
+	        String query2 = "UPDATE purchase SET status='ANNULLATO' WHERE id=?";
+	        String query3 = "UPDATE product P "
+	        		+ "JOIN ( "
+	        		+ "	   SELECT P.id, P.quantity + PI.quantity AS new_quantity "
+	        		+ "    FROM product P "
+	        		+ "    JOIN purchase_item PI ON P.id = PI.productId "
+	        		+ "    JOIN purchase ON PI.purchaseId = purchase.id "
+	        		+ "    WHERE purchase.id = ? "
+	        		+ ") AS subquery "
+	        		+ "ON P.id = subquery.id "
+	        		+ "SET P.quantity = subquery.new_quantity;";
+
+	        statement1 = connection.prepareStatement(query1);
+	        statement1.setInt(1, purchaseId);
+	        statement1.executeUpdate();
+	        
+	        statement2 = connection.prepareStatement(query2);
+	        statement2.setInt(1, purchaseId);
+	        statement2.executeUpdate();
+	        
+	        statement3 = connection.prepareStatement(query3);
+	        statement3.setInt(1, purchaseId);
+	        statement3.executeUpdate();
+
+	        connection.commit();
+	        
+	        
+	    } catch (SQLException e) {
+	        logger.log(Level.WARNING, e.getMessage());
+	    } finally {
+	        try {
+	            if (statement1 != null) {
+	                statement1.close();
+	            }
+	            if (statement2 != null) {
+	                statement2.close();
+	            }
+	            if (statement3 != null) {
+	                statement3.close();
+	            }
+	            if (connection != null) {
+	                connection.close();
+	            }
+	        } catch (SQLException e) {
+	            logger.log(Level.WARNING, e.getMessage());
+	        }
+	    }	
+	}	
 	
 }

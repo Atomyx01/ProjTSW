@@ -1,12 +1,12 @@
 package it.unisa.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -101,7 +101,7 @@ public class CartDAO {
 	        }
 	    }
 
-	    return generatedId; // Ritorniamo l'ID generato
+	    return generatedId;
 	}
 	
 	
@@ -136,7 +136,7 @@ public class CartDAO {
 	            int favorites = resultSet.getInt("favorites");
 	            Date listingDate = resultSet.getDate("listingDate");
 	            String description = resultSet.getString("description");
-	            Category category = Category.valueOf(resultSet.getString("category").toUpperCase());
+	            Category category = Category.valueOf(resultSet.getString("category"));
 	            
 	            Product product = new Product();
 	            product.setId(id);
